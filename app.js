@@ -37,7 +37,10 @@ app.post("/add-pet",async(req,res)=>{
     await pet.create(req.body)
     res.json({"status":"success"})
 })
-
+app.post("/view-pet",async(req,res)=>{
+    const pets=await pet.find()
+    res.json(pets)
+})
 
 app.listen(1000,()=>{
     console.log("server started")
